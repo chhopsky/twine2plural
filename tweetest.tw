@@ -1,0 +1,37 @@
+﻿:: Start [Kristin]
+Hey, how's it going?
+
+[[Yeah, could be worse.]]
+[[Not really.]]
+
+
+:: Yeah, could be worse. [Kristin]
+Heh, no kidding. Want to go get some lunch?
+
+[[Yeah, sure.]]
+
+
+:: Yeah, sure.
+:)
+
+
+:: StoryTitle
+Untitled Story
+
+
+:: Not really. [Kristin]
+Ah, I see.
+
+Well. Are you okay?
+
+[[Definitely not.]]
+
+
+:: StoryAuthor
+Anonymous
+
+
+:: Definitely not. [Kristin]
+Okay. Well. Bye then.
+
+

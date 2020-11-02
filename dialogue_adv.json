@@ -1,0 +1,236 @@
+[
+	{
+		"Name": "kristin_firstmeeting_1",
+		"Speaker": "Kristin",
+		"Dialogue_Text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"3011526F40CBAACDEF2EBE9AA36817F3\", \"Hey, how\\'s it going?\")",
+		"Response": [
+			{
+				"response_text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"263A149949B573826363CEAE6DAEF5A7\", \"Could be worse, how about you?\")",
+				"conditions":
+				{
+					"stats_you":
+					{
+						"Health": 0,
+						"Energy": 0,
+						"Happy": 0,
+						"Depressed": 0,
+						"Angry": 0,
+						"Tired": 0,
+						"Confused": 0,
+						"Horny": 0,
+						"Love": 0,
+						"Hungry": 0,
+						"Embarassed": 0
+					},
+					"stats_them":
+					{
+					},
+					"conversations":
+					{
+					},
+					"quests": []
+				},
+				"postrouting": [
+					{
+						"target_dialogue": "kristin_firstmeeting_2",
+						"conditions":
+						{
+							"stats_you":
+							{
+								"Health": 0,
+								"Energy": 0,
+								"Happy": 0,
+								"Depressed": 0,
+								"Angry": 0,
+								"Tired": 0,
+								"Confused": 0,
+								"Horny": 0,
+								"Love": 0,
+								"Hungry": 0,
+								"Embarassed": 0
+							},
+							"stats_them":
+							{
+							},
+							"conversations":
+							{
+							},
+							"quests": []
+						},
+						"effects":
+						{
+							"stats_you":
+							{
+								"Health": 0,
+								"Energy": 0,
+								"Happy": 0,
+								"Depressed": 0,
+								"Angry": 0,
+								"Tired": 0,
+								"Confused": 0,
+								"Horny": 0,
+								"Love": 0,
+								"Hungry": 0,
+								"Embarassed": 0
+							},
+							"stats_them":
+							{
+							},
+							"conversations":
+							{
+								"Kristin": "kristin_firstmeeting_5"
+							},
+							"quests": []
+						}
+					}
+				]
+			},
+			{
+				"response_text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"59C98C724A9A05AB37AD7DA174C6330C\", \"I don\\'t want to talk about it.\")",
+				"conditions":
+				{
+					"stats_you":
+					{
+						"Health": 0,
+						"Energy": 0,
+						"Happy": 0,
+						"Depressed": 0,
+						"Angry": 0,
+						"Tired": 0,
+						"Confused": 0,
+						"Horny": 0,
+						"Love": 0,
+						"Hungry": 0,
+						"Embarassed": 0
+					},
+					"stats_them":
+					{
+					},
+					"conversations":
+					{
+					},
+					"quests": []
+				},
+				"postrouting": []
+			}
+		],
+		"Dialogue_Options": []
+	},
+	{
+		"Name": "kristin_firstmeeting_2",
+		"Speaker": "Kristin",
+		"Dialogue_Text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"294967E64FD3763B33CBBBA4DA8D3222\", \"Heh, no kidding. You want to get lunch?\")",
+		"Response": [
+			{
+				"response_text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"27DC213344E79D8C376224BAFB7E0823\", \"Sure, sounds great :)\")",
+				"conditions":
+				{
+					"stats_you":
+					{
+						"Health": 0,
+						"Energy": 0,
+						"Happy": 0,
+						"Depressed": 0,
+						"Angry": 0,
+						"Tired": 0,
+						"Confused": 0,
+						"Horny": 0,
+						"Love": 0,
+						"Hungry": 0,
+						"Embarassed": 0
+					},
+					"stats_them":
+					{
+					},
+					"conversations":
+					{
+					},
+					"quests": []
+				},
+				"postrouting": [
+					{
+						"target_dialogue": "None",
+						"conditions":
+						{
+							"stats_you":
+							{
+								"Health": 0,
+								"Energy": 0,
+								"Happy": 0,
+								"Depressed": 0,
+								"Angry": 0,
+								"Tired": 0,
+								"Confused": 0,
+								"Horny": 0,
+								"Love": 0,
+								"Hungry": 0,
+								"Embarassed": 0
+							},
+							"stats_them":
+							{
+							},
+							"conversations":
+							{
+							},
+							"quests": []
+						},
+						"effects":
+						{
+							"stats_you":
+							{
+								"Health": 0,
+								"Energy": 0,
+								"Happy": 0,
+								"Depressed": 0,
+								"Angry": 0,
+								"Tired": 0,
+								"Confused": 0,
+								"Horny": 0,
+								"Love": 0,
+								"Hungry": 0,
+								"Embarassed": 0
+							},
+							"stats_them":
+							{
+							},
+							"conversations":
+							{
+								"Kristin": "kristin_later"
+							},
+							"quests": []
+						}
+					}
+				]
+			}
+		],
+		"Dialogue_Options": []
+	},
+	{
+		"Name": "kristin_firstmeeting_3",
+		"Speaker": "Kristin",
+		"Dialogue_Text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"D502EF3B4A7CE6B7EE9704A9D0A8D853\", \"Uh .. are you okay?\")",
+		"Response": [],
+		"Dialogue_Options": []
+	},
+	{
+		"Name": "kristin_firstmeeting_4",
+		"Speaker": "Kristin",
+		"Dialogue_Text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"B434E0C242F3BFC5E8B50484C2D7116C\", \"Oh uh. Okay well. I gotta .. go. Bye.\")",
+		"Response": [],
+		"Dialogue_Options": []
+	},
+	{
+		"Name": "kristin_later",
+		"Speaker": "Kristin",
+		"Dialogue_Text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"C8648EB54B47DEBD9C68BFB6419B3DE5\", \"It\\'s not time yet.\")",
+		"Response": [],
+		"Dialogue_Options": []
+	},
+	{
+		"Name": "astro_greeting_1",
+		"Speaker": "Astro",
+		"Dialogue_Text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"457F6AFA4ACFD53AD0B59F9517EC54DA\", \"Hi.\")",
+		"Response": [],
+		"Dialogue_Options": []
+	}
+]
