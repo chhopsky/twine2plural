@@ -1,0 +1,70 @@
+[
+    {
+        "Dialogue_Text": "Hey, how's it going?",
+        "Speaker": "Kristin",
+        "Row_Name": "line_1",
+        "Response": [
+            {
+                "response_text": "Yeah, could be worse.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_2"
+                    }
+                ]
+            },
+            {
+                "response_text": "Not really.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": "Heh, no kidding. Want to go get some lunch?",
+        "Speaker": "Kristin",
+        "Row_Name": "line_2",
+        "Response": [
+            {
+                "response_text": "Yeah, sure.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": ":)",
+        "Row_Name": "line_4",
+        "Response": []
+    },
+    {
+        "Dialogue_Text": "Untitled Story",
+        "Row_Name": "line_5",
+        "Response": []
+    },
+    {
+        "Dialogue_Text": "Ah, I see.\n\nWell. Are you okay?",
+        "Speaker": "Kristin",
+        "Row_Name": "line_3",
+        "Response": [
+            {
+                "response_text": "Definitely not.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_6"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": "Anonymous",
+        "Row_Name": "line_7",
+        "Response": []
+    }
+]
