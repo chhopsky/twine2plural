@@ -1,7 +1,6 @@
 import json
 import argparse
 from bs4 import BeautifulSoup
-from pprint import pprint
 from dialogue import Stats, Quest, Gate, Postrouting, Response, Dialogue
 
 def twine_v1():
@@ -67,11 +66,7 @@ def twine_v1():
 
 
             line_number += 1
-
-
-    pprint(dialogue_adv)
-    pprint(dialogue_map)
-            
+           
     f.close
 
     with open(f"{args.filename}.json", "w") as of:
@@ -110,8 +105,6 @@ def twine_v2():
             dialogue["Response"] = responses
             dialogue_adv.append(dialogue)
 
-        pprint(dialogue_adv)
-        pprint(dialogue_map)
         f.close
 
         with open(f"{args.filename}.json", "w") as of:
