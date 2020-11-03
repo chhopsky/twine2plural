@@ -5,7 +5,7 @@
         "Name": "line_1",
         "Response": [
             {
-                "response_text": "Yeah, could be worse.",
+                "response_text": "Alright, how about you?",
                 "post_routing": [
                     {
                         "target_dialogue": "line_2"
@@ -13,7 +13,7 @@
                 ]
             },
             {
-                "response_text": "Not really.",
+                "response_text": "Not great.",
                 "post_routing": [
                     {
                         "target_dialogue": "line_3"
@@ -23,12 +23,12 @@
         ]
     },
     {
-        "Dialogue_Text": "Heh, no kidding. Want to go get some lunch?",
+        "Dialogue_Text": "Could be worse. Hey, you want to get some lunch?",
         "Speaker": "Kristin",
         "Name": "line_2",
         "Response": [
             {
-                "response_text": "Yeah, sure.",
+                "response_text": "Sure, sounds great.",
                 "post_routing": [
                     {
                         "target_dialogue": "line_4"
@@ -38,33 +38,38 @@
         ]
     },
     {
-        "Dialogue_Text": ":)",
-        "Name": "line_4",
-        "Response": []
-    },
-    {
-        "Dialogue_Text": "Untitled Story",
-        "Name": "line_5",
-        "Response": []
-    },
-    {
-        "Dialogue_Text": "Ah, I see.\n\nWell. Are you okay?",
+        "Dialogue_Text": "Oh. You want to talk about it?",
         "Speaker": "Kristin",
         "Name": "line_3",
         "Response": [
             {
-                "response_text": "Definitely not.",
+                "response_text": "Sure, sounds great.",
                 "post_routing": [
                     {
-                        "target_dialogue": "line_6"
+                        "target_dialogue": "line_4"
+                    }
+                ]
+            },
+            {
+                "response_text": "Nope.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_5"
                     }
                 ]
             }
         ]
     },
     {
-        "Dialogue_Text": "Anonymous",
-        "Name": "line_7",
+        "Dialogue_Text": ":))",
+        "Speaker": "Kristin",
+        "Name": "line_4",
+        "Response": []
+    },
+    {
+        "Dialogue_Text": "Okay. Well. Bye.",
+        "Speaker": "Kristin",
+        "Name": "line_5",
         "Response": []
     }
 ]

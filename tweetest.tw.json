@@ -1,19 +1,32 @@
 [
     {
-        "Dialogue_Text": "Hey, how's it going?",
-        "Speaker": "Kristin",
-        "Name": "line_1",
+        "Dialogue_Text": "\u00ef\u00bb\u00bf:: Start [Kristin]\nHey, how's it going?",
         "Response": [
             {
                 "response_text": "Yeah, could be worse.",
                 "post_routing": [
                     {
-                        "target_dialogue": "line_2"
+                        "target_dialogue": "line_1"
                     }
                 ]
             },
             {
                 "response_text": "Not really.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_2"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": "Heh, no kidding. Want to go get some lunch?",
+        "Speaker": "Kristin",
+        "Row_Name": "line_1",
+        "Response": [
+            {
+                "response_text": "Yeah, sure.",
                 "post_routing": [
                     {
                         "target_dialogue": "line_3"
@@ -23,40 +36,25 @@
         ]
     },
     {
-        "Dialogue_Text": "Heh, no kidding. Want to go get some lunch?",
-        "Speaker": "Kristin",
-        "Name": "line_2",
-        "Response": [
-            {
-                "response_text": "Yeah, sure.",
-                "post_routing": [
-                    {
-                        "target_dialogue": "line_4"
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "Dialogue_Text": ":)",
-        "Name": "line_4",
+        "Row_Name": "line_3",
         "Response": []
     },
     {
         "Dialogue_Text": "Untitled Story",
-        "Name": "line_5",
+        "Row_Name": "line_4",
         "Response": []
     },
     {
         "Dialogue_Text": "Ah, I see.\n\nWell. Are you okay?",
         "Speaker": "Kristin",
-        "Name": "line_3",
+        "Row_Name": "line_2",
         "Response": [
             {
                 "response_text": "Definitely not.",
                 "post_routing": [
                     {
-                        "target_dialogue": "line_6"
+                        "target_dialogue": "line_5"
                     }
                 ]
             }
@@ -64,7 +62,7 @@
     },
     {
         "Dialogue_Text": "Anonymous",
-        "Name": "line_7",
+        "Row_Name": "line_6",
         "Response": []
     }
 ]

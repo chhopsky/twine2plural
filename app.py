@@ -33,11 +33,11 @@ def twine_v1():
                     row_map = line[0][3:]
                     
                 if dialogue_map.get(row_map):
-                    dialogue["Row_Name"] = dialogue_map.get(row_map)
+                    dialogue["Name"] = dialogue_map.get(row_map)
                 else:
                     new_row_name = f"{dialogue_prefix}{dialogue_number}"
                     dialogue_map[row_map] = new_row_name
-                    dialogue["Row_Name"] = new_row_name
+                    dialogue["Name"] = new_row_name
                     dialogue_number += 1
                     
 
@@ -74,7 +74,6 @@ def twine_v1():
             
     f.close
 
-
     with open(f"{args.filename}.json", "w") as of:
         of.write(json.dumps(dialogue_adv, indent=4))
 
@@ -106,12 +105,17 @@ def twine_v2():
                 else:
                     dialogue_text += line
             dialogue["Dialogue_Text"] = dialogue_text.rstrip("\n")
-            dialogue["Response"] = responses
             dialogue["Speaker"] = item["tags"]
+            dialogue["Name"] = f"line_{item['pid']}"
+            dialogue["Response"] = responses
             dialogue_adv.append(dialogue)
 
         pprint(dialogue_adv)
         pprint(dialogue_map)
+        f.close
+
+        with open(f"{args.filename}.json", "w") as of:
+            of.write(json.dumps(dialogue_adv, indent=4))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Convert a twine script to json.')
