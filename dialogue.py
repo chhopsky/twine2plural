@@ -43,8 +43,8 @@ class Dialogue_Options(BaseModel):
     VO: Optional[str]
 
 class Dialogue(BaseModel):
-    Row_Name: str
-    Dialogue_Text: str
+    Row_Name: str = ""
+    Dialogue_Text: str = ""
     Speaker: Optional[str]
     Response: Optional[List[Response]]
     Dialogue_Options: Optional[List[Dialogue_Options]]
