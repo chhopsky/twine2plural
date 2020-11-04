@@ -1,0 +1,124 @@
+[
+    {
+        "Dialogue_Text": "Hey, how's it going?",
+        "Speaker": "Kristin",
+        "Name": "line_1",
+        "Response": [
+            {
+                "response_text": "Alright, how about you?",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_2"
+                    }
+                ]
+            },
+            {
+                "response_text": "Not great.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": "Could be worse. Hey, you want to get some lunch?",
+        "Speaker": "Kristin",
+        "Name": "line_2",
+        "Response": [
+            {
+                "response_text": "Sure, sounds great.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": "Oh. You want to talk about it?",
+        "Speaker": "Kristin",
+        "Name": "line_3",
+        "Response": [
+            {
+                "response_text": "Sure, sounds great.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_4"
+                    }
+                ]
+            },
+            {
+                "response_text": "Nope.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_5"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": ":))",
+        "Speaker": "Kristin",
+        "Name": "line_4",
+        "Response": []
+    },
+    {
+        "Dialogue_Text": "Okay. Well. Bye.",
+        "Speaker": "Kristin",
+        "Name": "line_5",
+        "Response": []
+    },
+    {
+        "Dialogue_Text": "You're ready for lunch? Sounds great, what do you feel like?",
+        "Speaker": "Kristin",
+        "Name": "line_6",
+        "Response": [
+            {
+                "response_text": "I could go thai.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_7"
+                    }
+                ]
+            },
+            {
+                "response_text": "I've been craving pizza.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_8"
+                    }
+                ]
+            },
+            {
+                "response_text": "Whatever you feel like.",
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_9"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Dialogue_Text": "(this choice makes you more interesting)",
+        "Speaker": "Kristin",
+        "Name": "line_7",
+        "Response": []
+    },
+    {
+        "Dialogue_Text": "(This choice makes you relatable)",
+        "Speaker": "Kristin",
+        "Name": "line_8",
+        "Response": []
+    },
+    {
+        "Dialogue_Text": "(this choice makes you a coward)",
+        "Speaker": "Kristin",
+        "Name": "line_9",
+        "Response": []
+    }
+]
