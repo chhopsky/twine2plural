@@ -14,11 +14,11 @@ How to use:
 2. Export it using the Publish button or View Proofing Copy button. Proofing copies are faster.
 3. Run the program from the command line, and it give it an argument of the file you just saved.
 
-# twine2plural.exe test.html
+> twine2plural.exe test.html
 
 If you have a twine v1 twee file you want to import, you can do that too, but setting conversation heads is not supported. Alert a v1 file by adding '-v 1'
 
-# twine2plural.exe test.tw -v 1 
+> twine2plural.exe test.tw -v 1 
 
 Additional control options can be added with lines starting with two "#"s, with arguments separated by ":"s.
 
