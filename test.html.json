@@ -61,6 +61,17 @@
         ]
     },
     {
+        "Effects": {
+            "quest": [
+                {
+                    "questname": "get-a-date",
+                    "state": "Started"
+                }
+            ],
+            "conversations": {
+                "Kristin": "line_6"
+            }
+        },
         "Dialogue_Text": ":))",
         "Speaker": "Kristin",
         "Name": "line_4",
