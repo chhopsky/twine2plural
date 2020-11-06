@@ -47,7 +47,8 @@ The example file provided uses an NPC named Kristin, in "test.html"
 4. Go back to the content browser, right click on the data table and reimport from source
 5. Place a chr_base actor onto the map in the level editor
 6. Click on it, set the variable NPC_Name to Kristin and the variable dialogue start to "line_1"
-7. Hit play. Hit E to interact with an NPC.
+7. Assign a skeletal mesh or static mesh to the character
+8. Hit play. Hit E to interact with an NPC.
 
 You can do this with as many different base_chr actors as you want. Go forth, and make games.
 
