@@ -1,8 +1,7 @@
 # twine2plural
 A tool to convert Twine scripts into importable json for UE4 Plural conversation engine
 
-For now just a python script, will create win32 binaries later:
-
+How to develop:
 - Install python 3.8
 - pip install pipenv
 - pipenv --python 3.8
@@ -12,7 +11,7 @@ For now just a python script, will create win32 binaries later:
 How to use:
 1. Build your twine the way you normally would. Use a tag for the speaker of a particular passage.
 2. Export it using the Publish button or View Proofing Copy button. Proofing copies are faster.
-3. Run the program from the command line, and it give it an argument of the file you just saved.
+3. Run the program from the command line, and it give it an argument of the file you just saved (or just drag the html file onto the .exe)
 
 `twine2plural.exe test.html`
 
