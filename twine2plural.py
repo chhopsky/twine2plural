@@ -98,6 +98,14 @@ def parse_meta(line, dialogue_map):
         }
         return convo_update
 
+    if breakout[0] == 'stats' and len(breakout) == 3:
+        convo_update = {
+            "stats" : {
+                breakout[1] : breakout[2]
+            }
+        }
+        return convo_update
+
     return None
 
 def twine_v2():
