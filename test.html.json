@@ -62,7 +62,7 @@
     },
     {
         "Effects": {
-            "quest": [
+            "quests": [
                 {
                     "questname": "get-a-date",
                     "state": "Started"
@@ -70,6 +70,12 @@
             ],
             "conversations": {
                 "Kristin": "line_6"
+            },
+            "user_vars": {
+                "items": {},
+                "variables": {
+                    "ghosts": "real"
+                }
             }
         },
         "Dialogue_Text": ":))",

@@ -108,6 +108,29 @@ def parse_meta(line, dialogue_map):
 
     return None
 
+
+
+def parse_inline_set(line):
+    line = line.lstrip("<<")
+    line = line.rstrip(">>")
+    commands = line.split(";")
+    user_vars = { "items" : {}, "variables": {}}
+    for command in commands:
+        command = command.split()
+        target = "inventory"
+        try:
+            value = int(command[3])
+        except ValueError:
+            target = "variables"
+        if target == "variables":
+            user_vars["variables"][command[1]] = command[3]
+        else:
+            if command[2] == "-=":
+                command[2] = int(command[2]) * -1
+            user_vars["inventory"][command[1]] = command[3]
+
+    return user_vars
+
 def twine_v2():
     with open(f"{args.filename}", "r") as f:
         dialogue_map = {}
@@ -140,6 +163,17 @@ def twine_v2():
                             dialogue["Effects"] = {**meta, **dialogue["Effects"]}
                         else:
                             dialogue["Effects"] = meta
+                elif line.startswith("<<"):
+                    user_vars = parse_inline_set(line)
+                    if user_vars != { "inventory" : {}, "variables": {}}:
+                        if dialogue.get("Effects"):
+                            if dialogue["Effects"].get("user_vars"):
+                                dialogue["Effects"]["user_vars"] = {**user_vars, **dialogue["Effects"]["user_vars"]}
+                            else:
+                                dialogue["Effects"]["user_vars"] = user_vars
+                        else:
+                            dialogue["Effects"]["user_vars"] = user_vars
+                            
                 else:
                     dialogue_text += line
             dialogue["Dialogue_Text"] = dialogue_text.rstrip("\n")
