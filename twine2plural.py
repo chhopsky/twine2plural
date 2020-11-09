@@ -83,9 +83,10 @@ def parse_meta(line, dialogue_map):
 
     if breakout[0] == 'quest' and len(breakout) == 3 and breakout[1] in quest_commands:
         quest_update = {
-            "quests" : { 
-                breakout[2]: breakout[1]
-            }
+            "quests" : [{ 
+                "questname": breakout[2],
+                "state": breakout[1]
+            }]
         }
         return quest_update
     
