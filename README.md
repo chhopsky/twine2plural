@@ -32,9 +32,13 @@ Quests:
 - e.g. ##quest:Completed:get-a-date
 
 Conversations:
-- Like links, you point to the correct one with the title of the passage.
+- Like links, you reset the conversation head (the one you get next time you interact) to the correct one with the title of the passage. 
 - ##conversation:npc_name:passagename
 - e.g. ##conversation:Kristin:phase2 
+
+You can use this to reset multiple conversation heads, say if you normally interact with Astro and get a "hi" back with no options, but you reach a point where Kristin tells you to go talk to Astro, and this then sets a new conversation head for both Kristin and Astro:
+- ##conversation:Kristin:go-see-astro
+- ##conversation:Astro:whats-up
 
 How to use Plural:
 
