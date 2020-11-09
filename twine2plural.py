@@ -109,7 +109,6 @@ def parse_meta(line, dialogue_map):
     return None
 
 
-
 def parse_inline_set(line):
     line = line.lstrip("<<")
     line = line.rstrip(">>")
@@ -148,14 +147,24 @@ def twine_v2():
             for line in item.string.splitlines():
                 if line.startswith("[["):
                     row_map = line.lstrip("[").rstrip(" ").rstrip("]")
-                    target_dialogue = dialogue_map[row_map]
+                    row_map = row_map.split("][")
+                    target_dialogue = dialogue_map[row_map[0]]
+                    
                     response = {
-                        "response_text" : row_map,
+                        "response_text" : row_map[0],
                         "post_routing": [ {
                             "target_dialogue": target_dialogue
                         }]
                     }
-                    responses.append(response)
+                
+                    if len(row_map) > 1:
+                        meta = {}
+                        if row_map[1].startswith("##"):
+                            meta = parse_meta(row_map[1], dialogue_map)
+                        else:
+                            meta = parse_inline_set(row_map[1])
+                        response["post_routing"][0] = { **meta, **response["post_routing"][0]}
+                        
                 elif line.startswith("##"):
                     meta = parse_meta(line, dialogue_map)
                     if meta is not None:
