@@ -115,18 +115,21 @@ def parse_inline_set(line):
     commands = line.split(";")
     user_vars = { "items" : {}, "variables": {}}
     for command in commands:
+        if command[0] == "set":
+            command.pop(0)
+        command[0].lstrip("$")
         command = command.split()
         target = "inventory"
         try:
-            value = int(command[3])
+            value = int(command[2])
         except ValueError:
             target = "variables"
         if target == "variables":
-            user_vars["variables"][command[1]] = command[3]
+            user_vars["variables"][command[0]] = command[2]
         else:
-            if command[2] == "-=":
+            if command[1] == "-=":
                 command[2] = int(command[2]) * -1
-            user_vars["inventory"][command[1]] = command[3]
+            user_vars["inventory"][command[0]] = command[2]
 
     return user_vars
 
