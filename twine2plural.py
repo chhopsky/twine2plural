@@ -113,12 +113,12 @@ def parse_inline_set(line):
     line = line.lstrip("<<")
     line = line.rstrip(">>")
     commands = line.split(";")
-    user_vars = { "items" : {}, "variables": {}}
+    user_vars = { "inventory" : {}, "variables": {}}
     for command in commands:
+        command = command.split()
         if command[0] == "set":
             command.pop(0)
         command[0].lstrip("$")
-        command = command.split()
         target = "inventory"
         try:
             value = int(command[2])
@@ -146,11 +146,12 @@ def twine_v2():
         for item in items:
             responses = []
             dialogue_text = ""
-            dialogue = {}
+            dialogue = { "Dialogue_Text": [] }
             for line in item.string.splitlines():
                 if line.startswith("[["):
                     row_map = line.lstrip("[").rstrip(" ").rstrip("]")
                     row_map = row_map.split("][")
+                    
                     target_dialogue = dialogue_map[row_map[0]]
                     
                     response = {
@@ -167,6 +168,7 @@ def twine_v2():
                         else:
                             meta = parse_inline_set(row_map[1])
                         response["post_routing"][0] = { **meta, **response["post_routing"][0]}
+                    responses.append(response)
                         
                 elif line.startswith("##"):
                     meta = parse_meta(line, dialogue_map)
@@ -180,15 +182,18 @@ def twine_v2():
                     if user_vars != { "inventory" : {}, "variables": {}}:
                         if dialogue.get("Effects"):
                             if dialogue["Effects"].get("user_vars"):
-                                dialogue["Effects"]["user_vars"] = {**user_vars, **dialogue["Effects"]["user_vars"]}
+                                dialogue["Effects"]["user_vars"]["inventory"] = {**user_vars["inventory"], **dialogue["Effects"]["user_vars"]["inventory"]}
+                                dialogue["Effects"]["user_vars"]["variables"] = {**user_vars["variables"], **dialogue["Effects"]["user_vars"]["variables"]}
                             else:
                                 dialogue["Effects"]["user_vars"] = user_vars
                         else:
                             dialogue["Effects"]["user_vars"] = user_vars
-                            
+                elif line.startswith("--"):
+                    dialogue["Dialogue_Text"].append(dialogue_text)
+                    dialogue_text = ""
                 else:
                     dialogue_text += line
-            dialogue["Dialogue_Text"] = dialogue_text.rstrip("\n")
+            dialogue["Dialogue_Text"].append(dialogue_text.rstrip("\n"))
             dialogue["Speaker"] = item["tags"]
             dialogue["Name"] = f"line_{item['pid']}"
             dialogue["Response"] = responses

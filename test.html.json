@@ -1,6 +1,10 @@
 [
     {
-        "Dialogue_Text": "Hey, how's it going?",
+        "Dialogue_Text": [
+            "Hey, how's it going?",
+            "I'm hungry. I could get some food.",
+            "Want to join me?"
+        ],
         "Speaker": "Kristin",
         "Name": "line_1",
         "Response": [
@@ -23,7 +27,9 @@
         ]
     },
     {
-        "Dialogue_Text": "Could be worse. Hey, you want to get some lunch?",
+        "Dialogue_Text": [
+            "Could be worse. Hey, you want to get some lunch?"
+        ],
         "Speaker": "Kristin",
         "Name": "line_2",
         "Response": [
@@ -38,7 +44,9 @@
         ]
     },
     {
-        "Dialogue_Text": "Oh. You want to talk about it?",
+        "Dialogue_Text": [
+            "Oh. You want to talk about it?"
+        ],
         "Speaker": "Kristin",
         "Name": "line_3",
         "Response": [
@@ -61,7 +69,13 @@
         ]
     },
     {
+        "Dialogue_Text": [
+            ":))"
+        ],
         "Effects": {
+            "stats": {
+                "Happy": "5"
+            },
             "quests": [
                 {
                     "questname": "get-a-date",
@@ -72,25 +86,30 @@
                 "Kristin": "line_6"
             },
             "user_vars": {
-                "items": {},
+                "inventory": {
+                    "eggs": "5"
+                },
                 "variables": {
                     "ghosts": "real"
                 }
             }
         },
-        "Dialogue_Text": ":))",
         "Speaker": "Kristin",
         "Name": "line_4",
         "Response": []
     },
     {
-        "Dialogue_Text": "Okay. Well. Bye.",
+        "Dialogue_Text": [
+            "Okay. Well. Bye."
+        ],
         "Speaker": "Kristin",
         "Name": "line_5",
         "Response": []
     },
     {
-        "Dialogue_Text": "You're ready for lunch? Sounds great, what do you feel like?",
+        "Dialogue_Text": [
+            "You're ready for lunch? Sounds great, what do you feel like?"
+        ],
         "Speaker": "Kristin",
         "Name": "line_6",
         "Response": [
@@ -121,19 +140,25 @@
         ]
     },
     {
-        "Dialogue_Text": "(this choice makes you more interesting)",
+        "Dialogue_Text": [
+            "(this choice makes you more interesting)"
+        ],
         "Speaker": "Kristin",
         "Name": "line_7",
         "Response": []
     },
     {
-        "Dialogue_Text": "(This choice makes you relatable)",
+        "Dialogue_Text": [
+            "(This choice makes you relatable)"
+        ],
         "Speaker": "Kristin",
         "Name": "line_8",
         "Response": []
     },
     {
-        "Dialogue_Text": "(this choice makes you a coward)",
+        "Dialogue_Text": [
+            "(this choice makes you a coward)"
+        ],
         "Speaker": "Kristin",
         "Name": "line_9",
         "Response": []
