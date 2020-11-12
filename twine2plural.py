@@ -113,13 +113,13 @@ def parse_inline_set(line):
     line = line.lstrip("<<")
     line = line.rstrip(">>")
     commands = line.split(";")
-    user_vars = { "inventory" : {}, "variables": {}}
+    user_vars = { "items" : {}, "variables": {}}
     for command in commands:
         command = command.split()
         if command[0] == "set":
             command.pop(0)
         command[0].lstrip("$")
-        target = "inventory"
+        target = "items"
         try:
             value = int(command[2])
         except ValueError:
@@ -129,7 +129,7 @@ def parse_inline_set(line):
         else:
             if command[1] == "-=":
                 command[2] = int(command[2]) * -1
-            user_vars["inventory"][command[0]] = command[2]
+            user_vars["items"][command[0]] = command[2]
 
     return user_vars
 
@@ -179,10 +179,10 @@ def twine_v2():
                             dialogue["Effects"] = meta
                 elif line.startswith("<<"):
                     user_vars = parse_inline_set(line)
-                    if user_vars != { "inventory" : {}, "variables": {}}:
+                    if user_vars != { "items" : {}, "variables": {}}:
                         if dialogue.get("Effects"):
                             if dialogue["Effects"].get("user_vars"):
-                                dialogue["Effects"]["user_vars"]["inventory"] = {**user_vars["inventory"], **dialogue["Effects"]["user_vars"]["inventory"]}
+                                dialogue["Effects"]["user_vars"]["items"] = {**user_vars["items"], **dialogue["Effects"]["user_vars"]["items"]}
                                 dialogue["Effects"]["user_vars"]["variables"] = {**user_vars["variables"], **dialogue["Effects"]["user_vars"]["variables"]}
                             else:
                                 dialogue["Effects"]["user_vars"] = user_vars
