@@ -1,11 +1,20 @@
 [
     {
         "Dialogue_Text": [
-            "Hey, how's it going?",
-            "I'm hungry. I could get some food.",
-            "Want to join me?"
+            {
+                "text": "Hey, happy tuesday.",
+                "Speaker": "Kristin"
+            },
+            {
+                "text": "What a fucking day. Virus times, man.",
+                "Speaker": "Kristin",
+                "append": true
+            },
+            {
+                "text": "How's it going, anyway?"
+            }
         ],
-        "Speaker": "Kristin",
+        "Speaker": "",
         "Name": "line_1",
         "Response": [
             {
@@ -28,7 +37,12 @@
     },
     {
         "Dialogue_Text": [
-            "Could be worse. Hey, you want to get some lunch?"
+            {
+                "text": "Could be worse."
+            },
+            {
+                "text": "Hey, you want to get some lunch?"
+            }
         ],
         "Speaker": "Kristin",
         "Name": "line_2",
@@ -45,7 +59,9 @@
     },
     {
         "Dialogue_Text": [
-            "Oh. You want to talk about it?"
+            {
+                "text": "Oh. You want to talk about it?"
+            }
         ],
         "Speaker": "Kristin",
         "Name": "line_3",
@@ -70,7 +86,13 @@
     },
     {
         "Dialogue_Text": [
-            ":))"
+            {
+                "text": ":))",
+                "Speaker": "Kristin"
+            },
+            {
+                "text": "The two of you agree to meet up later."
+            }
         ],
         "Effects": {
             "stats": {
@@ -100,7 +122,9 @@
     },
     {
         "Dialogue_Text": [
-            "Okay. Well. Bye."
+            {
+                "text": "Okay. Well. Bye."
+            }
         ],
         "Speaker": "Kristin",
         "Name": "line_5",
@@ -108,7 +132,9 @@
     },
     {
         "Dialogue_Text": [
-            "You're ready for lunch? Sounds great, what do you feel like?"
+            {
+                "text": "You're ready for lunch? Sounds great, what do you feel like?"
+            }
         ],
         "Speaker": "Kristin",
         "Name": "line_6",
@@ -141,7 +167,9 @@
     },
     {
         "Dialogue_Text": [
-            "(this choice makes you more interesting)"
+            {
+                "text": "(this choice makes you more interesting)"
+            }
         ],
         "Speaker": "Kristin",
         "Name": "line_7",
@@ -149,7 +177,9 @@
     },
     {
         "Dialogue_Text": [
-            "(This choice makes you relatable)"
+            {
+                "text": "(This choice makes you relatable)"
+            }
         ],
         "Speaker": "Kristin",
         "Name": "line_8",
@@ -157,7 +187,9 @@
     },
     {
         "Dialogue_Text": [
-            "(this choice makes you a coward)"
+            {
+                "text": "(this choice makes you a coward)"
+            }
         ],
         "Speaker": "Kristin",
         "Name": "line_9",

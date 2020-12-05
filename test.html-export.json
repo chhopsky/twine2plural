@@ -1,0 +1,1166 @@
+[
+	{
+		"Name": "line_1",
+		"Dialogue_Text": [
+			{
+				"Speaker": "Kristin",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_1_Dialogue_Text_Index0_text\", \"Hey, happy tuesday.\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [
+						"testfunction"
+					],
+					"Animation": []
+				}
+			},
+			{
+				"Speaker": "Kristin",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_1_Dialogue_Text_Index1_text\", \"What a fucking day. Virus times, man.\")",
+				"append": true,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			},
+			{
+				"Speaker": "Kristin",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_1_Dialogue_Text_Index2_text\", \"How\\'s it going, anyway?\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_1_Response_Index0_response_text\", \"Alright, how about you?\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": [
+							{
+								"stat name": "Happy",
+								"operator": "Greater",
+								"operand": 44
+							}
+						]
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_2",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": true
+			},
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_1_Response_Index1_response_text\", \"Not great.\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": []
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_3",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": false
+			}
+		],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": [
+					{
+						"stat name": "Health",
+						"operator": "Less",
+						"operand": 5
+					}
+				]
+			},
+			"stats_npcs":
+			{
+				"Kristin":
+				{
+					"stats": [
+						{
+							"stat name": "Hungry",
+							"operator": "Greater",
+							"operand": 5
+						}
+					]
+				}
+			}
+		}
+	},
+	{
+		"Name": "line_2",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_2_Dialogue_Text_Index0_text\", \"Could be worse.\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			},
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_2_Dialogue_Text_Index1_text\", \"Hey, you want to get some lunch?\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_2_Response_Index0_response_text\", \"Sure, sounds great.\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": []
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_4",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": false
+			}
+		],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "line_3",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_3_Dialogue_Text_Index0_text\", \"Oh. You want to talk about it?\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_3_Response_Index0_response_text\", \"Sure, sounds great.\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": []
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_4",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": false
+			},
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_3_Response_Index1_response_text\", \"Nope.\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": []
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_5",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": false
+			}
+		],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "line_4",
+		"Dialogue_Text": [
+			{
+				"Speaker": "Kristin",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_4_Dialogue_Text_Index0_text\", \":))\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			},
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_4_Dialogue_Text_Index1_text\", \"The two of you agree to meet up later.\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [],
+		"Effects":
+		{
+			"conversations":
+			{
+				"Kristin": "line_6"
+			},
+			"quests": [
+				{
+					"questname": "get-a-date",
+					"state": "Started"
+				}
+			],
+			"user_vars":
+			{
+				"variables":
+				{
+					"ghosts": "not real"
+				},
+				"items":
+				{
+					"eggs": 5
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "line_5",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_5_Dialogue_Text_Index0_text\", \"Okay. Well. Bye.\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "line_6",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_6_Dialogue_Text_Index0_text\", \"You\\'re ready for lunch? Sounds great, what do you feel like?\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_6_Response_Index0_response_text\", \"I could go thai.\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": [
+							{
+								"stat name": "Health",
+								"operator": "Equals",
+								"operand": 50
+							}
+						]
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_7",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": true
+			},
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_6_Response_Index1_response_text\", \"I\\'ve been craving pizza.\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": []
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_8",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": false
+			},
+			{
+				"response_text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_6_Response_Index2_response_text\", \"Whatever you feel like.\")",
+				"conditions":
+				{
+					"conversations":
+					{
+					},
+					"quests": [],
+					"user_vars":
+					{
+						"variables":
+						{
+						},
+						"items":
+						{
+						}
+					},
+					"stats_me":
+					{
+						"stats": []
+					},
+					"stats_npcs":
+					{
+					}
+				},
+				"post_routing": [
+					{
+						"target_dialogue": "line_9",
+						"conditions":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						},
+						"effects":
+						{
+							"conversations":
+							{
+							},
+							"quests": [],
+							"user_vars":
+							{
+								"variables":
+								{
+								},
+								"items":
+								{
+								}
+							},
+							"stats_me":
+							{
+								"stats": []
+							},
+							"stats_npcs":
+							{
+							}
+						}
+					}
+				],
+				"show_if_unavailable": false
+			}
+		],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "line_7",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_7_Dialogue_Text_Index0_text\", \"(this choice makes you more interesting)\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "line_8",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_8_Dialogue_Text_Index0_text\", \"(This choice makes you relatable)\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "line_9",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"dt_dialogue_adv [668FFE514C7003F8A8A571B6310B974C]\", \"line_9_Dialogue_Text_Index0_text\", \"(this choice makes you a coward)\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	},
+	{
+		"Name": "intro",
+		"Dialogue_Text": [
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"D67059564213FEE904040F9EC8355A06\", \"It\\'s cold. Been cold for too long.\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			},
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"40E7E94943170DB7A0F530B69049D54B\", \"It gets into your bones, out here. You can\\'t escape it. It\\'s just there. Like gravity.\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			},
+			{
+				"Speaker": "None",
+				"text": "NSLOCTEXT(\"[668FFE514C7003F8A8A571B6310B974C]\", \"FD9357204F8C84503F5536B1296A1E4D\", \"There\\'s Kristin. I should say hello. It\\'s been too long.\")",
+				"append": false,
+				"Options":
+				{
+					"Music": "None",
+					"Audio": "None",
+					"Sequence": "None",
+					"Functions": [],
+					"Animation": []
+				}
+			}
+		],
+		"Response": [],
+		"Effects":
+		{
+			"conversations":
+			{
+			},
+			"quests": [],
+			"user_vars":
+			{
+				"variables":
+				{
+				},
+				"items":
+				{
+				}
+			},
+			"stats_me":
+			{
+				"stats": []
+			},
+			"stats_npcs":
+			{
+			}
+		}
+	}
+]

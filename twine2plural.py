@@ -75,7 +75,7 @@ def twine_v1():
 commands = ['quest', 'conversation','stats']
 quest_commands = ['Started', 'Completed']
 
-def parse_meta(line, dialogue_map):
+def parse_effects(line, dialogue_map):
     line = line.lstrip("##")
     breakout = line.split(":")
     if len(breakout) < 2 or breakout[0] not in commands:
@@ -98,12 +98,14 @@ def parse_meta(line, dialogue_map):
         }
         return convo_update
 
-    if breakout[0] == 'stats' and len(breakout) == 3:
+    if breakout[0] == 'stats' and len(breakout) == 4:
         convo_update = {
-            "stats" : {
-                breakout[1] : breakout[2]
+            "stats" : [{
+                "stat name" : breakout[1],
+                "operator" : breakout[2],
+                "operand" : breakout[3]                
             }
-        }
+        }]
         return convo_update
 
     return None
@@ -145,9 +147,10 @@ def twine_v2():
         
         for item in items:
             responses = []
-            dialogue_text = ""
+            dialogue_text = { "text": ""}
             dialogue = { "Dialogue_Text": [] }
             for line in item.string.splitlines():
+                # handle responses
                 if line.startswith("[["):
                     row_map = line.lstrip("[").rstrip(" ").rstrip("]")
                     row_map = row_map.split("][")
@@ -160,23 +163,32 @@ def twine_v2():
                             "target_dialogue": target_dialogue
                         }]
                     }
-                
+
+                    # handle post-response routing requirements
                     if len(row_map) > 1:
                         meta = {}
                         if row_map[1].startswith("##"):
-                            meta = parse_meta(row_map[1], dialogue_map)
+                            meta = parse_effects(row_map[1], dialogue_map)
                         else:
                             meta = parse_inline_set(row_map[1])
                         response["post_routing"][0] = { **meta, **response["post_routing"][0]}
                     responses.append(response)
-                        
+
+                # set speaker
+                elif line.startswith("@"):
+                    line = line.lstrip("@")
+                    dialogue_text["Speaker"] = line
+
+                # handle effects
                 elif line.startswith("##"):
-                    meta = parse_meta(line, dialogue_map)
+                    meta = parse_effects(line, dialogue_map)
                     if meta is not None:
                         if dialogue.get("Effects"):
                             dialogue["Effects"] = {**meta, **dialogue["Effects"]}
                         else:
                             dialogue["Effects"] = meta
+
+                # handle twine user variables
                 elif line.startswith("<<"):
                     user_vars = parse_inline_set(line)
                     if user_vars != { "inventory" : {}, "variables": {}}:
@@ -188,12 +200,17 @@ def twine_v2():
                                 dialogue["Effects"]["user_vars"] = user_vars
                         else:
                             dialogue["Effects"]["user_vars"] = user_vars
-                elif line.startswith("--"):
+
+                # handle dialogue text chunks            
+                elif line.startswith("--") or line.startswith("++"):
+                    if line.startswith("++"):
+                        dialogue_text["append"] = True
                     dialogue["Dialogue_Text"].append(dialogue_text)
-                    dialogue_text = ""
+                    dialogue_text = { "text": "" }
                 else:
-                    dialogue_text += line
-            dialogue["Dialogue_Text"].append(dialogue_text.rstrip("\n"))
+                    dialogue_text["text"] += line
+            dialogue_text["text"] = dialogue_text["text"].rstrip("\n")
+            dialogue["Dialogue_Text"].append(dialogue_text)
             dialogue["Speaker"] = item["tags"]
             dialogue["Name"] = f"line_{item['pid']}"
             dialogue["Response"] = responses
