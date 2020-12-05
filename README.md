@@ -19,11 +19,11 @@ If you have a twine v1 twee file you want to import, you can do that too, but se
 
 `twine2plural.exe test.tw -v 1`
 
-Additional control options can be added with lines starting with two "#"s, with arguments separated by ":"s.
+Additional EFFECTS options can be added with lines starting with two "#"s, with arguments separated by ":"s.
 
 You can start/finish quests, or set the conversation heads (the passage you'll get the next time you interact with an NPC). You can set the conversation heads for any NPC in the game this way, not just the one you're interacting with, so if you wanted to, say, blow up your whole friend circle because you were a massive dickhead to someone, you could do that.
 
-Anyway, tagging control options:
+Anyway, EFFECTS options:
 
 Quests:
 - Valid states are "Started" and "Completed"
@@ -39,6 +39,11 @@ Conversations:
 You can use this to reset multiple conversation heads, say if you normally interact with Astro and get a "hi" back with no options, but you reach a point where Kristin tells you to go talk to Astro, and this then sets a new conversation head for both Kristin and Astro:
 - ##conversation:Kristin:go-see-astro
 - ##conversation:Astro:whats-up
+
+If you want to have a number of NPC dialogues before a response, you can split it in two ways.
+
+using `--` will split out a different page in the same conversation item. use @Kristin or whoever to change the NPC speaker
+using `++` will append text to on the same page.
 
 How to use Plural:
 
