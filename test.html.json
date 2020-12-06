@@ -95,18 +95,21 @@
             }
         ],
         "Effects": {
-            "stats": {
-                "Happy": "5"
-            },
-            "quests": [
-                {
-                    "questname": "get-a-date",
-                    "state": "Started"
-                }
-            ],
             "conversations": {
                 "Kristin": "line_6"
             },
+            "stats": [
+                {
+                    "stat name": "Happy",
+                    "operator": "Greater",
+                    "operand": 5
+                },
+                {
+                    "stat name": "Sad",
+                    "operator": "Greater",
+                    "operand": 5
+                }
+            ],
             "user_vars": {
                 "items": {
                     "eggs": "5"

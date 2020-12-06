@@ -103,9 +103,9 @@ def parse_effects(line, dialogue_map):
             "stats" : [{
                 "stat name" : breakout[1],
                 "operator" : breakout[2],
-                "operand" : breakout[3]                
-            }
-        }]
+                "operand" : int(breakout[3])
+            }]
+        }
         return convo_update
 
     return None
@@ -184,7 +184,18 @@ def twine_v2():
                     meta = parse_effects(line, dialogue_map)
                     if meta is not None:
                         if dialogue.get("Effects"):
-                            dialogue["Effects"] = {**meta, **dialogue["Effects"]}
+                            if meta.get("conversation"):
+                                dialogue["Effects"] = {**meta, **dialogue["Effects"]}
+                            elif meta.get("stats"):
+                                if dialogue["Effects"].get("stats"):
+                                    dialogue["Effects"]["stats"].append(meta.get("stats")[0])
+                                else:
+                                    dialogue["Effects"]["stats"] = meta.get("stats")
+                            elif meta.get("quest"):
+                                if dialogue["Effects"].get("quest"):
+                                    dialogue["Effects"]["quest"].append(meta.get("quest")[0])
+                                else:
+                                    dialogue["Effects"]["quest"] = meta.get("quest")
                         else:
                             dialogue["Effects"] = meta
 
