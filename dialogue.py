@@ -11,30 +11,29 @@ from typing import Text, List, Dict, Optional
 # This will be used later when I make a full editor
 # that supports post-response routing
 
-class Stats(BaseModel):
-    Health: int = 0
-    Energy: int = 0
-    Hungry: int = 0
-    Happy: int = 0
-    Depressed: int = 0
-    Angry: int = 0
-    Tired: int = 0
-    Confused: int = 0
-    Horny: int = 0
-    Love: int = 0
-    Bond: int = 0
-    Embarassed: int = 0
-    Courage: int = 0
+
+class Stats_Effect(BaseModel):
+    stat_name: str = ""
+    operator: str = "Greater"
+    operand: int = 0
+
+class Stats_Effect_Array(BaseModel):
+    stats: List = [] # stats effect
 
 class Quest(BaseModel):
-    questname: str
-    state: str
+    questname: str = ""
+    state: str = ""
+
+class User_Vars(BaseModel):
+    variables: Dict = {}
+    items: List = []
 
 class Gate(BaseModel):
-    stats_you: Optional[Stats]
-    stats_them: Optional[Dict]
-    conversations: Optional[Dict]
-    quests: Optional[List[Quest]]
+    stats_me: Stats_Effect_Array = Stats_Effect_Array()
+    stats_them: Dict = {}
+    conversations: Dict = {}
+    quests: List = [] # type Quest
+    user_vars: User_Vars = User_Vars()
 
 class Postrouting(BaseModel):
     target_dialogue: str
@@ -42,21 +41,32 @@ class Postrouting(BaseModel):
     effects: Optional[Gate]
 
 class Response(BaseModel):
-    response_text: str
+    response_text: str = ""
     conditions: Optional[Gate]
-    postrouting: Optional[List[Postrouting]]
+    postrouting: List = [] # Postrouting
+
+class Reaction(BaseModel):
+    Name: str = ""
+    Asset_to_play: str = ""
 
 class Dialogue_Options(BaseModel):
-    Reaction: Optional[str]
     Music: Optional[str]
-    Animation: Optional[str]
-    VO: Optional[str]
+    Audio: Optional[str]
+    Sequence: Optional[str]
+    Animation: Optional[List[Reaction]]
+    Functions: Optional[List[str]]
 
 class Dialogue(BaseModel):
+    Speaker: str = ""
+    text: str = ""
+    append: bool = False
+    Options: Optional[Dialogue_Options]
+
+class Dialogue_Adv(BaseModel):
     Name: str = ""
-    Dialogue_Text: str = ""
-    Speaker: Optional[str]
-    Response: Optional[List[Response]]
-    Dialogue_Options: Optional[List[Dialogue_Options]]
+    Dialogue: List = [] # type Dialogue
+    Effects: Gate = Gate()
+    Response: List = [] # type Response
+
 
     

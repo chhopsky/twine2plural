@@ -1,7 +1,7 @@
 import json
 import argparse
 from bs4 import BeautifulSoup
-from dialogue import Stats, Quest, Gate, Postrouting, Response, Dialogue
+from dialogue import Dialogue, Dialogue_Adv, Dialogue_Options, Reaction, Response, Postrouting, Gate, Quest, Stats_Effect_Array, Stats_Effect
 
 def twine_v1():
     with open(args.filename, "r") as f:
@@ -72,45 +72,6 @@ def twine_v1():
     with open(f"{args.filename}.json", "w") as of:
         of.write(json.dumps(dialogue_adv, indent=4))
 
-commands = ['quest', 'conversation','stats']
-quest_commands = ['Started', 'Completed']
-
-def parse_effects(line, dialogue_map):
-    line = line.lstrip("##")
-    breakout = line.split(":")
-    if len(breakout) < 2 or breakout[0] not in commands:
-        return None
-
-    if breakout[0] == 'quest' and len(breakout) == 3 and breakout[1] in quest_commands:
-        quest_update = {
-            "quests" : [{ 
-                "questname": breakout[2],
-                "state": breakout[1]
-            }]
-        }
-        return quest_update
-    
-    if breakout[0] == 'conversation' and len(breakout) == 3:
-        convo_update = {
-            "conversations" : {
-                breakout[1] : dialogue_map[breakout[2]]
-            }
-        }
-        return convo_update
-
-    if breakout[0] == 'stats' and len(breakout) == 4:
-        convo_update = {
-            "stats" : [{
-                "stat name" : breakout[1],
-                "operator" : breakout[2],
-                "operand" : int(breakout[3])
-            }]
-        }
-        return convo_update
-
-    return None
-
-
 def parse_inline_set(line):
     line = line.lstrip("<<")
     line = line.rstrip(">>")
@@ -135,9 +96,43 @@ def parse_inline_set(line):
 
     return user_vars
 
+commands = ['quest', 'conversation','stats']
+quest_commands = ['Started', 'Completed']
+
+def parse_effects(line, dialogue_effects):
+    line = line.lstrip("##")
+    breakout = line.split(":")
+    if len(breakout) < 2 or breakout[0] not in commands:
+        return None
+
+    if breakout[0] == 'quest' and len(breakout) == 3 and breakout[1] in quest_commands:
+        quest_update = Quest()
+        quest_update.questname = breakout[2]
+        quest_update.state = breakout[1]
+        dialogue_effects.quests.append(quest_update)
+        return 
+    
+    if breakout[0] == 'stats' and len(breakout) == 4:
+        stat_update = Stats_Effect()
+        stat_update.stat_name = breakout[1]
+        stat_update.operator = breakout[2]
+        stat_update.operand = int(breakout[3])
+        dialogue_effects.stats_me.stats.append(stat_update)
+
+    # TODO: apply stats to NPC
+
+    if breakout[0] == 'conversation' and len(breakout) == 3:
+        convo_update =  {
+                breakout[1] : dialogue_map[breakout[2]]
+            }
+        dialogue_effects.conversations = {**dialogue_effects.conversations, **convo_update}
+        return 
+
+    return 
+
 def twine_v2():
     with open(f"{args.filename}", "r") as f:
-        dialogue_map = {}
+        global dialogue_map = {}
         dialogue_adv = []
         page = f.read()
         soup = BeautifulSoup(page, "html.parser")
@@ -147,60 +142,34 @@ def twine_v2():
         
         for item in items:
             responses = []
-            dialogue_text = { "text": ""}
-            dialogue = { "Dialogue_Text": [] }
+            new_dialogue_row = Dialogue_Adv()
+            new_dialogue_chunk = Dialogue()
             for line in item.string.splitlines():
                 # handle responses
                 if line.startswith("[["):
                     row_map = line.lstrip("[").rstrip(" ").rstrip("]")
                     row_map = row_map.split("][")
                     
-                    target_dialogue = dialogue_map[row_map[0]]
+                    new_response = Response()
+                    new_response.response_text = row_map[0]
+                    new_postrouting = Postrouting()
+                    new_postrouting.target_dialogue = dialogue_map[row_map[0]]
+                    new_response.postrouting.append(new_postrouting)
                     
-                    response = {
-                        "response_text" : row_map[0],
-                        "post_routing": [ {
-                            "target_dialogue": target_dialogue
-                        }]
-                    }
-
-                    # handle post-response routing requirements
-                    if len(row_map) > 1:
-                        meta = {}
-                        if row_map[1].startswith("##"):
-                            meta = parse_effects(row_map[1], dialogue_map)
-                        else:
-                            meta = parse_inline_set(row_map[1])
-                        response["post_routing"][0] = { **meta, **response["post_routing"][0]}
-                    responses.append(response)
+                    # TODO: handle post-response routing requirements
+                    new_dialogue_row.Response.append(new_response)
 
                 # set speaker
                 elif line.startswith("@"):
                     line = line.lstrip("@")
-                    dialogue_text["Speaker"] = line
+                    new_dialogue_chunk.Speaker = line
 
                 # handle effects
                 elif line.startswith("##"):
-                    meta = parse_effects(line, dialogue_map)
-                    if meta is not None:
-                        if dialogue.get("Effects"):
-                            if meta.get("conversation"):
-                                dialogue["Effects"] = {**meta, **dialogue["Effects"]}
-                            elif meta.get("stats"):
-                                if dialogue["Effects"].get("stats_me"):
-                                    dialogue["Effects"]["stats_me"]["stats"].append(meta.get("stats")[0])
-                                else:
-                                    dialogue["Effects"]["stats_me"] = {}
-                                    dialogue["Effects"]["stats_me"]["stats"] = meta.get("stats")
-                            elif meta.get("quest"):
-                                if dialogue["Effects"].get("quests"):
-                                    dialogue["Effects"]["quests"].append(meta.get("quest")[0])
-                                else:
-                                    dialogue["Effects"]["quests"] = meta.get("quest")
-                        else:
-                            dialogue["Effects"] = meta
+                    parse_effects(line, new_dialogue_row.Effects)
 
-                # handle twine user variables
+                # handle twine user variables 
+                # TODO: rewrite this
                 elif line.startswith("<<"):
                     user_vars = parse_inline_set(line)
                     if user_vars != { "items" : {}, "variables": {}}:
@@ -213,7 +182,8 @@ def twine_v2():
                         else:
                             dialogue["Effects"]["user_vars"] = user_vars
 
-                # handle dialogue text chunks            
+                # handle dialogue text chunks      
+                # TODO: continue rewriting this      
                 elif line.startswith("--") or line.startswith("++"):
                     if line.startswith("++"):
                         dialogue_text["append"] = True
@@ -221,6 +191,7 @@ def twine_v2():
                     dialogue_text = { "text": "" }
                 else:
                     dialogue_text["text"] += line
+            # TODO: rewrite this
             dialogue_text["text"] = dialogue_text["text"].rstrip("\n")
             dialogue["Dialogue_Text"].append(dialogue_text)
             dialogue["Speaker"] = item["tags"]
