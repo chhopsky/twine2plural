@@ -72,11 +72,22 @@ def twine_v1():
     with open(f"{args.filename}.json", "w") as of:
         of.write(json.dumps(dialogue_adv, indent=4))
 
-def parse_inline_set(line):
+operators_change = {
+    "=" : "Equal",
+    "+=" : "Greater",
+    "-=" : "Less"
+}
+
+operators_compare = {
+    "=" : "Equal",
+    ">" : "Greater",
+    "<" : "Less"
+}
+
+def parse_inline_set(line, user_vars):
     line = line.lstrip("<<")
     line = line.rstrip(">>")
     commands = line.split(";")
-    user_vars = { "items" : {}, "variables": {}}
     for command in commands:
         command = command.split()
         if command[0] == "set":
@@ -88,13 +99,17 @@ def parse_inline_set(line):
         except ValueError:
             target = "variables"
         if target == "variables":
-            user_vars["variables"][command[0]] = command[2]
+            new_var = { 
+                command[0]: command[2]
+            }
+            user_vars.variables = {**user_vars.variables, **new_var}
         else:
-            if command[1] == "-=":
-                command[2] = int(command[2]) * -1
-            user_vars["items"][command[0]] = command[2]
-
-    return user_vars
+            var_update = Stats_Effect()
+            var_update.stat_name = command[0]
+            var_update.operator = operators_change[command[1]]
+            var_update.operand = command[2]
+            user_vars.items.append(var_update)
+    return
 
 commands = ['quest', 'conversation','stats']
 quest_commands = ['Started', 'Completed']
@@ -130,9 +145,10 @@ def parse_effects(line, dialogue_effects):
 
     return 
 
+dialogue_map = {}
+
 def twine_v2():
     with open(f"{args.filename}", "r") as f:
-        global dialogue_map = {}
         dialogue_adv = []
         page = f.read()
         soup = BeautifulSoup(page, "html.parser")
@@ -141,7 +157,6 @@ def twine_v2():
             dialogue_map[item["name"]] = f"line_{item['pid']}"
         
         for item in items:
-            responses = []
             new_dialogue_row = Dialogue_Adv()
             new_dialogue_chunk = Dialogue()
             for line in item.string.splitlines():
@@ -154,7 +169,7 @@ def twine_v2():
                     new_response.response_text = row_map[0]
                     new_postrouting = Postrouting()
                     new_postrouting.target_dialogue = dialogue_map[row_map[0]]
-                    new_response.postrouting.append(new_postrouting)
+                    new_response.post_routing.append(new_postrouting)
                     
                     # TODO: handle post-response routing requirements
                     new_dialogue_row.Response.append(new_response)
@@ -171,38 +186,32 @@ def twine_v2():
                 # handle twine user variables 
                 # TODO: rewrite this
                 elif line.startswith("<<"):
-                    user_vars = parse_inline_set(line)
-                    if user_vars != { "items" : {}, "variables": {}}:
-                        if dialogue.get("Effects"):
-                            if dialogue["Effects"].get("user_vars"):
-                                dialogue["Effects"]["user_vars"]["items"] = {**user_vars["items"], **dialogue["Effects"]["user_vars"]["items"]}
-                                dialogue["Effects"]["user_vars"]["variables"] = {**user_vars["variables"], **dialogue["Effects"]["user_vars"]["variables"]}
-                            else:
-                                dialogue["Effects"]["user_vars"] = user_vars
-                        else:
-                            dialogue["Effects"]["user_vars"] = user_vars
+                    parse_inline_set(line, new_dialogue_row.Effects.user_vars)
 
                 # handle dialogue text chunks      
                 # TODO: continue rewriting this      
                 elif line.startswith("--") or line.startswith("++"):
                     if line.startswith("++"):
-                        dialogue_text["append"] = True
-                    dialogue["Dialogue_Text"].append(dialogue_text)
-                    dialogue_text = { "text": "" }
+                        new_dialogue_chunk.append = True
+                    new_dialogue_row.Dialogue_Text.append(new_dialogue_chunk)
+                    new_dialogue_chunk = Dialogue()
                 else:
-                    dialogue_text["text"] += line
+                    new_dialogue_chunk.text += line
             # TODO: rewrite this
-            dialogue_text["text"] = dialogue_text["text"].rstrip("\n")
-            dialogue["Dialogue_Text"].append(dialogue_text)
-            dialogue["Speaker"] = item["tags"]
-            dialogue["Name"] = f"line_{item['pid']}"
-            dialogue["Response"] = responses
-            dialogue_adv.append(dialogue)
+            new_dialogue_chunk.text = new_dialogue_chunk.text.rstrip("\n")
+            new_dialogue_row.Dialogue_Text.append(new_dialogue_chunk)
+            new_dialogue_row.Name = f"line_{item['pid']}"
+            dialogue_adv.append(new_dialogue_row)
 
         f.close
 
         with open(f"{args.filename}.json", "w") as of:
-            of.write(json.dumps(dialogue_adv, indent=4))
+            output_as_list_of_dicts = []
+            for row in dialogue_adv:
+                add_dict = row.dict()
+                output_as_list_of_dicts.append(add_dict)
+                
+            of.write(json.dumps(output_as_list_of_dicts, indent=4))
             print(f"Saved to {args.filename}.json")
 
 if __name__ == "__main__":

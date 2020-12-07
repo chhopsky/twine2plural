@@ -1,203 +1,368 @@
 [
     {
-        "Dialogue_Text": [
-            {
-                "text": "Hey, happy tuesday.",
-                "Speaker": "Kristin"
-            },
-            {
-                "text": "What a fucking day. Virus times, man.",
-                "Speaker": "Kristin",
-                "append": true
-            },
-            {
-                "text": "How's it going, anyway?"
-            }
-        ],
-        "Speaker": "",
         "Name": "line_1",
-        "Response": [
-            {
-                "response_text": "Alright, how about you?",
-                "post_routing": [
-                    {
-                        "target_dialogue": "line_2"
-                    }
-                ]
-            },
-            {
-                "response_text": "Not great.",
-                "post_routing": [
-                    {
-                        "target_dialogue": "line_3"
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "Dialogue_Text": [
             {
-                "text": "Could be worse."
+                "Speaker": "Kristin",
+                "text": "Hey, happy tuesday.",
+                "append": false,
+                "Options": null
             },
             {
-                "text": "Hey, you want to get some lunch?"
-            }
-        ],
-        "Speaker": "Kristin",
-        "Name": "line_2",
-        "Response": [
-            {
-                "response_text": "Sure, sounds great.",
-                "post_routing": [
-                    {
-                        "target_dialogue": "line_4"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "Dialogue_Text": [
-            {
-                "text": "Oh. You want to talk about it?"
-            }
-        ],
-        "Speaker": "Kristin",
-        "Name": "line_3",
-        "Response": [
-            {
-                "response_text": "Sure, sounds great.",
-                "post_routing": [
-                    {
-                        "target_dialogue": "line_4"
-                    }
-                ]
+                "Speaker": "Kristin",
+                "text": "What a fucking day. Virus times, man.",
+                "append": true,
+                "Options": null
             },
             {
-                "response_text": "Nope.",
-                "post_routing": [
-                    {
-                        "target_dialogue": "line_5"
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "Dialogue_Text": [
-            {
-                "text": ":))",
-                "Speaker": "Kristin"
-            },
-            {
-                "text": "The two of you agree to meet up later."
+                "Speaker": "",
+                "text": "How's it going, anyway?",
+                "append": false,
+                "Options": null
             }
         ],
         "Effects": {
-            "conversations": {
-                "Kristin": "line_6"
+            "stats_me": {
+                "stats": []
             },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
+        "Response": [
+            {
+                "response_text": "Alright, how about you?",
+                "conditions": null,
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_2",
+                        "conditions": null,
+                        "effects": null
+                    }
+                ],
+                "show_if_unavailable": true
+            },
+            {
+                "response_text": "Not great.",
+                "conditions": null,
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_3",
+                        "conditions": null,
+                        "effects": null
+                    }
+                ],
+                "show_if_unavailable": true
+            }
+        ]
+    },
+    {
+        "Name": "line_2",
+        "Dialogue_Text": [
+            {
+                "Speaker": "",
+                "text": "Could be worse.",
+                "append": false,
+                "Options": null
+            },
+            {
+                "Speaker": "",
+                "text": "Hey, you want to get some lunch?",
+                "append": false,
+                "Options": null
+            }
+        ],
+        "Effects": {
+            "stats_me": {
+                "stats": []
+            },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
+        "Response": [
+            {
+                "response_text": "Sure, sounds great.",
+                "conditions": null,
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_4",
+                        "conditions": null,
+                        "effects": null
+                    }
+                ],
+                "show_if_unavailable": true
+            }
+        ]
+    },
+    {
+        "Name": "line_3",
+        "Dialogue_Text": [
+            {
+                "Speaker": "",
+                "text": "Oh. You want to talk about it?",
+                "append": false,
+                "Options": null
+            }
+        ],
+        "Effects": {
+            "stats_me": {
+                "stats": []
+            },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
+        "Response": [
+            {
+                "response_text": "Sure, sounds great.",
+                "conditions": null,
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_4",
+                        "conditions": null,
+                        "effects": null
+                    }
+                ],
+                "show_if_unavailable": true
+            },
+            {
+                "response_text": "Nope.",
+                "conditions": null,
+                "post_routing": [
+                    {
+                        "target_dialogue": "line_5",
+                        "conditions": null,
+                        "effects": null
+                    }
+                ],
+                "show_if_unavailable": true
+            }
+        ]
+    },
+    {
+        "Name": "line_4",
+        "Dialogue_Text": [
+            {
+                "Speaker": "Kristin",
+                "text": ":))",
+                "append": false,
+                "Options": null
+            },
+            {
+                "Speaker": "",
+                "text": "The two of you agree to meet up later.",
+                "append": false,
+                "Options": null
+            }
+        ],
+        "Effects": {
             "stats_me": {
                 "stats": [
                     {
-                        "stat name": "Happy",
+                        "stat_name": "Happy",
                         "operator": "Greater",
                         "operand": 5
                     },
                     {
-                        "stat name": "Sad",
+                        "stat_name": "Sad",
                         "operator": "Greater",
                         "operand": 5
                     }
                 ]
             },
+            "stats_npcs": {},
+            "conversations": {
+                "Kristin": "line_6"
+            },
+            "quests": [
+                {
+                    "questname": "get-a-date",
+                    "state": "Started"
+                }
+            ],
             "user_vars": {
-                "items": {
-                    "eggs": "5"
-                },
                 "variables": {
                     "ghosts": "real"
-                }
+                },
+                "items": [
+                    {
+                        "stat_name": "eggs",
+                        "operator": "Greater",
+                        "operand": "5"
+                    }
+                ]
             }
         },
-        "Speaker": "Kristin",
-        "Name": "line_4",
         "Response": []
     },
     {
-        "Dialogue_Text": [
-            {
-                "text": "Okay. Well. Bye."
-            }
-        ],
-        "Speaker": "Kristin",
         "Name": "line_5",
+        "Dialogue_Text": [
+            {
+                "Speaker": "",
+                "text": "Okay. Well. Bye.",
+                "append": false,
+                "Options": null
+            }
+        ],
+        "Effects": {
+            "stats_me": {
+                "stats": []
+            },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
         "Response": []
     },
     {
+        "Name": "line_6",
         "Dialogue_Text": [
             {
-                "text": "You're ready for lunch? Sounds great, what do you feel like?"
+                "Speaker": "",
+                "text": "You're ready for lunch? Sounds great, what do you feel like?",
+                "append": false,
+                "Options": null
             }
         ],
-        "Speaker": "Kristin",
-        "Name": "line_6",
+        "Effects": {
+            "stats_me": {
+                "stats": []
+            },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
         "Response": [
             {
                 "response_text": "I could go thai.",
+                "conditions": null,
                 "post_routing": [
                     {
-                        "target_dialogue": "line_7"
+                        "target_dialogue": "line_7",
+                        "conditions": null,
+                        "effects": null
                     }
-                ]
+                ],
+                "show_if_unavailable": true
             },
             {
                 "response_text": "I've been craving pizza.",
+                "conditions": null,
                 "post_routing": [
                     {
-                        "target_dialogue": "line_8"
+                        "target_dialogue": "line_8",
+                        "conditions": null,
+                        "effects": null
                     }
-                ]
+                ],
+                "show_if_unavailable": true
             },
             {
                 "response_text": "Whatever you feel like.",
+                "conditions": null,
                 "post_routing": [
                     {
-                        "target_dialogue": "line_9"
+                        "target_dialogue": "line_9",
+                        "conditions": null,
+                        "effects": null
                     }
-                ]
+                ],
+                "show_if_unavailable": true
             }
         ]
     },
     {
-        "Dialogue_Text": [
-            {
-                "text": "(this choice makes you more interesting)"
-            }
-        ],
-        "Speaker": "Kristin",
         "Name": "line_7",
+        "Dialogue_Text": [
+            {
+                "Speaker": "",
+                "text": "(this choice makes you more interesting)",
+                "append": false,
+                "Options": null
+            }
+        ],
+        "Effects": {
+            "stats_me": {
+                "stats": []
+            },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
         "Response": []
     },
     {
-        "Dialogue_Text": [
-            {
-                "text": "(This choice makes you relatable)"
-            }
-        ],
-        "Speaker": "Kristin",
         "Name": "line_8",
+        "Dialogue_Text": [
+            {
+                "Speaker": "",
+                "text": "(This choice makes you relatable)",
+                "append": false,
+                "Options": null
+            }
+        ],
+        "Effects": {
+            "stats_me": {
+                "stats": []
+            },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
         "Response": []
     },
     {
+        "Name": "line_9",
         "Dialogue_Text": [
             {
-                "text": "(this choice makes you a coward)"
+                "Speaker": "",
+                "text": "(this choice makes you a coward)",
+                "append": false,
+                "Options": null
             }
         ],
-        "Speaker": "Kristin",
-        "Name": "line_9",
+        "Effects": {
+            "stats_me": {
+                "stats": []
+            },
+            "stats_npcs": {},
+            "conversations": {},
+            "quests": [],
+            "user_vars": {
+                "variables": {},
+                "items": []
+            }
+        },
         "Response": []
     }
 ]
