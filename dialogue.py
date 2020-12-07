@@ -1,16 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import Text, List, Dict, Optional
 
-# As you can see in the main app, this file is not used.
-# It does accurately describe the hierarchy used by the
-# datatypes in Plural, but here it does nothing.
-#
-# I made it with the intention of firmly typing the objects
-# for json creation but as we don't know the things we need
-# to instantiate them, I ended up building it with dicts
-# This will be used later when I make a full editor
-# that supports post-response routing
-
 
 class Stats_Effect(BaseModel):
     stat_name: str = ""
