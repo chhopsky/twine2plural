@@ -8,7 +8,7 @@ class Stats_Effect(BaseModel):
     operand: int = 0
 
 class Stats_Effect_Array(BaseModel):
-    stats: List = [] # stats effect
+    stats: List[Stats_Effect] = []
 
 class Quest(BaseModel):
     questname: str = ""
@@ -22,7 +22,7 @@ class Gate(BaseModel):
     stats_me: Stats_Effect_Array = Stats_Effect_Array()
     stats_npcs: Dict = {}
     conversations: Dict = {}
-    quests: List = [] # type Quest
+    quests: List[Quest] = [] 
     user_vars: User_Vars = User_Vars()
 
 class Postrouting(BaseModel):
@@ -33,7 +33,7 @@ class Postrouting(BaseModel):
 class Response(BaseModel):
     response_text: str = ""
     conditions: Optional[Gate]
-    post_routing: List = [] # Postrouting
+    post_routing: List[Postrouting] = []
     show_if_unavailable: bool = True
 
 class Reaction(BaseModel):
@@ -44,8 +44,8 @@ class Dialogue_Options(BaseModel):
     Music: str = ""
     Audio: str = ""
     Sequence: str = ""
-    Animation: List = [] # Reaction object
-    Functions: List = [] # List of strings
+    Animation: List[Reaction] = []
+    Functions: List[str] = []
 
 class Dialogue(BaseModel):
     Speaker: str = ""
@@ -55,9 +55,9 @@ class Dialogue(BaseModel):
 
 class Dialogue_Adv(BaseModel):
     Name: str = ""
-    Dialogue_Text: List = [] # type Dialogue
+    Dialogue_Text: List[Dialogue] = []
     Effects: Gate = Gate()
-    Response: List = [] # type Response
+    Response: List[Response] = [] 
 
 
     
